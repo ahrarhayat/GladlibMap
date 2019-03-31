@@ -135,6 +135,11 @@ public class GladLibMap {
 	    int size = map.size();
 	    return size;
 	}
+	public int totalWordsConsidered ()
+	{
+	    int size =0;
+	    return size;
+	}
 	public void makeStory(){
 	    usedWordList.clear();
 	    System.out.println("\n");
@@ -149,4 +154,5 @@ public class GladLibMap {
 		System.out.println(" ");
 		System.out.println("Total number of words: "+totalWordsInMap());
 }
+
 }
