@@ -7,9 +7,8 @@
  */
 import edu.duke.*;
 import java.util.*;
-
 public class GladLibMap {
-        private HashMap<String,ArrayList<String>> map;
+private HashMap<String,ArrayList<String>> map;
 	private ArrayList<String> usedWordList;
 	private Random myRandom;
 	private static String dataSourceURL = "http://dukelearntoprogram.com/course3/data";
@@ -132,27 +131,34 @@ public class GladLibMap {
 	}
 	public int totalWordsInMap()
 	{
-	    int size = map.size();
-	    return size;
+	   int size=0;
+	    for (String s : map.keySet()) {
+               ArrayList<String> list = new ArrayList<String>();
+               list=map.get(s);
+               int length=list.size();
+               size=size+length;
+            } 
+            return size;
 	}
 	public int totalWordsConsidered ()
 	{
-	    int size =0;
-	    return size;
+	    System.out.println("List of words used: ");
+		for(int k=0;k<usedWordList.size();k++)
+		{
+		    System.out.println(usedWordList.get(k));
+		}
+		return usedWordList.size();
 	}
 	public void makeStory(){
 	    usedWordList.clear();
 	    System.out.println("\n");
 		String story = fromTemplate("data/madtemplate2.txt");
 		printOut(story, 60);
-		System.out.println("List of words used: ");
-		for(int k=0;k<usedWordList.size();k++)
-		{
-		    System.out.println(usedWordList.get(k));
-		}
-		System.out.println("Number of words used "+ usedWordList.size());
+		int TotalWordsConsidered= totalWordsConsidered ();
+		System.out.println("Number of words used "+TotalWordsConsidered);
 		System.out.println(" ");
 		System.out.println("Total number of words: "+totalWordsInMap());
-}
-
+		System.out.println(" ");
+		System.out.println("Total words considered: "+totalWordsConsidered());
+        }
 }
